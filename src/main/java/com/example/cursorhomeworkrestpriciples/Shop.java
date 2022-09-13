@@ -1,5 +1,7 @@
 package com.example.cursorhomeworkrestpriciples;
 
+import java.util.Objects;
+
 public class Shop {
     private long id;
     private String name;
@@ -63,6 +65,19 @@ public class Shop {
 
     public void setWebSiteAvailable(boolean webSiteAvailable) {
         isWebSiteAvailable = webSiteAvailable;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Shop shop = (Shop) o;
+        return id == shop.id && quatityOfEployees == shop.quatityOfEployees && isWebSiteAvailable == shop.isWebSiteAvailable && name.equals(shop.name) && locationCity.equals(shop.locationCity) && locationStreet.equals(shop.locationStreet);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, locationCity, locationStreet, quatityOfEployees, isWebSiteAvailable);
     }
 
     @Override
